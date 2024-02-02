@@ -9,7 +9,7 @@ from selenium.common.exceptions import (
 import undetected_chromedriver as uc
 import re
 import time
-from env import HEAD_MODE, USERAGENT
+from env import HEAD_MODE, USERAGENT, CHROME_VER
 from logger import logger
 
 
@@ -50,7 +50,7 @@ def create_browser(headless=HEAD_MODE):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument(f"user-agent={user_agent}")
 
-    driver = uc.Chrome(options=options, version_main=120)
+    driver = uc.Chrome(options=options, version_main=CHROME_VER)
     logger.info("Launched undetectable browser")
     return driver
 

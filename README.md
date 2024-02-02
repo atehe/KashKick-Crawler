@@ -31,6 +31,7 @@ To set the variables, rename `env.example` to `.env` and fill accordingly
 - `DB_NAME`: Database Name
 - `DB_PORT`: SQL server PORT
 - `QUERY_LOG_FILE`: Logs queries that saves data to the server
+- `CHROME_VER`: Version of chrome installed
 
 ### USAGE
 
