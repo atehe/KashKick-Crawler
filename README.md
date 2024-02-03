@@ -32,6 +32,8 @@ To set the variables, rename `env.example` to `.env` and fill accordingly
 - `DB_PORT`: SQL server PORT
 - `QUERY_LOG_FILE`: Logs queries that saves data to the server
 - `CHROME_VER`: Version of chrome installed
+- `PROXY_LIST`: URL containg list of proxies
+- `USE_PROXY`: Set brpwser to to use proxy. `1` sets it to True and `0` to False
 
 ### USAGE
 

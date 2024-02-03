@@ -36,6 +36,8 @@ def resolve_redirects(driver):
     # get redirects url and osid not checked from offers table
     data = execute_query(conn, "select * from offerdata where checkedredirects = 0")
 
+    logger.debug(f"Fetched {len(data)} records to fillup redirects")
+
     for offerdata in data:
         osid = offerdata.get("osid")
         start_url = offerdata.get("starturl")

@@ -5,9 +5,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # browser settings
-HEAD_MODE = bool(os.environ.get("HEADLESS"))
+HEAD_MODE = bool(int(os.environ.get("HEADLESS")))
 USERAGENT = os.environ.get("USERAGENT")
 CHROME_VER = os.environ.get("CHROME_VER")
+PROXY_LIST = os.environ.get("PROXY_LIST")
+USE_PROXY = bool(int(os.environ.get("USE_PROXY")))
 
 
 # database settings
@@ -45,6 +47,8 @@ if __name__ == "__main__":
                 "KASHKICK_PASSWORD": KASHKICK_PASSWORD,
                 "QUERY_LOG_FILE": QUERY_LOG_FILE,
                 "CHROME_VER": CHROME_VER,
+                "PROXY_LIST": PROXY_LIST,
+                "USE_PROXY": USE_PROXY,
             }
         ),
     )

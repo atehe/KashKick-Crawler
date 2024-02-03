@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+*.SCSP2
+*.sql
+*.txt
+
 # C extensions
 *.so
 
