@@ -2,18 +2,27 @@
 
 Scripts to crawl https://kashkick.com to a MSSQL server DB
 
-## REQUIREMENTS AND INSTALLATION
+### Requirements and Installation
 
 The following are bas requirement that the crawler needs to run
 
 - Python
 - Chrome Browser
+- Git to clone repo
 
-Once this has been met other requirements like the python libraries the crawler needs can be installed using
+Once this has been met other requirements like the python libraries the crawler needs can be installed.
+
+First, clone the crawler
+
+```
+git clone https://github.com/atehe/KashKick-Crawler.git
+```
+
+Change to crawler directory and install libraries
 
 ```
 cd KashKick-Crawler
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 Key variables that the crawler needs are set in the `.env` file.
@@ -35,7 +44,13 @@ To set the variables, rename `env.example` to `.env` and fill accordingly
 - `PROXY_LIST`: URL containg list of proxies
 - `USE_PROXY`: Set brpwser to to use proxy. `1` sets it to True and `0` to False
 
-### USAGE
+To check that all the variables are installed correctly, you can run the `env.py` using
+
+```
+python3 env.py
+```
+
+### Usage
 
 To run the script
 
