@@ -6,7 +6,7 @@ Scripts to crawl https://kashkick.com to a MSSQL server DB
 
 The following are bas requirement that the crawler needs to run
 
-- Python
+- Python3.9
 - Chrome Browser
 - Git to clone repo
 

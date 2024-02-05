@@ -3,3 +3,4 @@ requests==2.31.0
 pymssql==2.2.11
 python-dotenv==1.0.1
 undetected-chromedriver==3.5.4
+selenium-wire==5.1.0
