@@ -41,8 +41,6 @@ def insert_data(conn, table, data, echo=True):
 
     log_query(query)
 
-    return data
-
     data = execute_query(conn, query)
     return data
 
@@ -52,8 +50,6 @@ def update_data(conn, table, update_data, filter_data, echo=True):
 
     logger.debug(f"Executing: {query}")
     log_query(query)
-
-    return update_data
 
     data = execute_query(conn, query)
     return data

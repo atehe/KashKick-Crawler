@@ -10,15 +10,9 @@ import requests
 import undetected_chromedriver as uc
 import re
 import time
-from env import HEAD_MODE, USE_PROXY, USERAGENT, CHROME_VER, PROXY_LIST
+from env import HEAD_MODE, USERAGENT, CHROME_VER, PROXY_FILE
 from logger import logger
-import os
 import random
-from seleniumwire import webdriver
-
-import chromedriver_binary  # noqa: F401
-
-PROXY_FILE = "proxy.txt"
 
 
 def clean(string, text_to_remove=[]):
@@ -51,7 +45,7 @@ def click(driver, element):
         driver.execute_script("arguments[0].click();", element)
 
 
-def create_browser(headless=HEAD_MODE, use_proxy=USE_PROXY):
+def create_browser(headless=HEAD_MODE):
     user_agent = USERAGENT
     options = Options()
     if headless:
@@ -59,23 +53,8 @@ def create_browser(headless=HEAD_MODE, use_proxy=USE_PROXY):
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument(f"user-agent={user_agent}")
-
-    if use_proxy:
-        proxy = get_proxy()
-        proxy_server, port, userame, password = proxy.split(":")
-        seleniumwire_options = {
-            "proxy": {
-                "https": f"https://{userame}:{password}@{proxy_server}:{port}",
-                "http": f"https://{userame}:{password}@{proxy_server}:{port}",
-                "no_proxy": "localhost,127.0.0.1",  # excludes
-            }
-        }
-        driver = webdriver.Chrome(
-            options=options,
-            seleniumwire_options=seleniumwire_options,
-        )
-        logger.info("Launched Proxy browser")
-        return driver
+    proxy_server = get_proxy()
+    options.add_argument(f"--proxy-server={proxy_server}")
 
     driver = uc.Chrome(options=options, version_main=int(CHROME_VER))
     logger.info("Launched undetectable browser")
@@ -125,14 +104,6 @@ def download_file(url, destination):
 
 
 def get_proxy():
-
-    if not os.path.exists(PROXY_FILE):
-
-        download_file(
-            PROXY_LIST,
-            PROXY_FILE,
-        )
-
     proxy_list = [proxy for proxy in open(PROXY_FILE).read().split("\n") if proxy]
     selected_proxy = random.choice(proxy_list)
     logger.info(f"Selected proxy: {selected_proxy}")
