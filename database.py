@@ -13,6 +13,9 @@ def execute_query(conn, query):
     data = list(cursor)
     conn.commit()
 
+    if not data:
+        return data
+
     return data if len(data) > 1 or query.startswith("select") else data[0]
 
 
