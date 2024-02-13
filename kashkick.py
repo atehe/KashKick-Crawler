@@ -6,7 +6,7 @@ from database import conn, insert_data
 from datetime import datetime
 from logger import logger
 from redirects import resolve_redirects
-from env import KASHKICK_EMAIL, KASHKICK_PASSWORD
+from env import CHECK_REDIRECTS, KASHKICK_EMAIL, KASHKICK_PASSWORD
 import random
 
 
@@ -209,7 +209,9 @@ if __name__ == "__main__":
     scrape_offers(driver, spid, "games", 1)
     scrape_offers(driver, spid, "offers", 2)
 
-    resolve_redirects(driver)
+    if CHECK_REDIRECTS:
+
+        resolve_redirects(driver)
 
     logger.info(f"Finished crawling Kashkick - {spid}")
     driver.quit()

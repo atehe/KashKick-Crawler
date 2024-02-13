@@ -42,6 +42,7 @@ To set the variables, rename `env.example` to `.env` and fill accordingly
 - `QUERY_LOG_FILE`: Logs queries that saves data to the server
 - `CHROME_VER`: Version of chrome installed
 - `PROXY_FILE`: File containing list of proxies
+- `CHECK_REDIRECTS`: Check redirects after scraping. 1 indicates True and 0 False
 
 To check that all the variables are installed correctly, you can run the `env.py` using
 

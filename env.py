@@ -30,6 +30,8 @@ KASHKICK_EMAIL = os.environ.get("KASHKICK_EMAIL")
 KASHKICK_PASSWORD = os.environ.get("KASHKICK_PASSWORD")
 
 
+CHECK_REDIRECTS = bool(int(os.environ.get("CHECK_REDIRECTS")))
+
 if __name__ == "__main__":
     print(
         "Loading ENV: ",
@@ -48,6 +50,7 @@ if __name__ == "__main__":
                 "QUERY_LOG_FILE": QUERY_LOG_FILE,
                 "CHROME_VER": CHROME_VER,
                 "PROXY_FILE": PROXY_FILE,
+                "CHECK_REDIRECTS": CHECK_REDIRECTS,
             }
         ),
     )
