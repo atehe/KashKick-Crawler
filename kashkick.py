@@ -123,12 +123,13 @@ def scrape_offers(driver, spid, offer_type, page_num):
                 )
                 offer_data = insert_data(
                     conn,
-                    "offerdata",
+                    "offerdatas",
                     {
                         "spid": spid,
                         "pagenum": page_num,
                         "title": title,
                         "starturl": start_url,
+                        "ordinal": i + 1,
                         "urlfinal": "",
                         "checkedredirects": 0,
                         "reward": earn,
@@ -198,7 +199,7 @@ if __name__ == "__main__":
     # it should create an entry in the spiderings table with a website field value of “kashkick”.
     spiderring_data = insert_data(
         conn,
-        "spiderrings",
+        "spiderings",
         {
             "spiderstart": str(datetime.now().strftime("%d/%m/%y %H:%M:%S")),
             "website": "kashkick",
